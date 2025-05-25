@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "../config/database.js";
+import db from "../config/Database.js";
 
 const { DataTypes } = Sequelize;
 
@@ -24,7 +24,10 @@ const Kamar = db.define("kamar", {
     type: DataTypes.ENUM("kosong", "terisi"),
     defaultValue: "kosong",
   },
-  lokasi: DataTypes.STRING,
+    gambar_url: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
   timestamps: false,
 });

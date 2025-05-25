@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2025 at 04:24 PM
+-- Generation Time: May 25, 2025 at 10:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -45,8 +45,7 @@ CREATE TABLE `kamar` (
   `tipe_kamar` varchar(50) DEFAULT NULL,
   `harga` decimal(12,2) NOT NULL,
   `fasilitas` text DEFAULT NULL,
-  `status` enum('kosong','terisi') DEFAULT 'kosong',
-  `lokasi` varchar(255) DEFAULT NULL
+  `status` enum('kosong','terisi') DEFAULT 'kosong'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,6 +58,8 @@ CREATE TABLE `pembayaran` (
   `pembayaran_id` int(11) NOT NULL,
   `sewa_id` int(11) NOT NULL,
   `tgl_bayar` date NOT NULL,
+  `tgl_mulai` date NOT NULL,
+  `tgl_selesai` date NOT NULL,
   `jumlah` decimal(12,2) NOT NULL,
   `metode_bayar` varchar(50) DEFAULT NULL,
   `status` enum('lunas','belum lunas') DEFAULT 'belum lunas'
@@ -88,8 +89,6 @@ CREATE TABLE `riwayat_sewa` (
   `sewa_id` int(11) NOT NULL,
   `penyewa_id` int(11) NOT NULL,
   `kamar_id` int(11) NOT NULL,
-  `tgl_mulai` date NOT NULL,
-  `tgl_selesai` date NOT NULL,
   `status` enum('aktif','selesai','batal') DEFAULT 'aktif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -175,14 +174,14 @@ ALTER TABLE `riwayat_sewa`
 -- Constraints for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`sewa_id`) REFERENCES `riwayat_sewa` (`sewa_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`sewa_id`) REFERENCES `riwayat_sewa` (`sewa_id`);
 
 --
 -- Constraints for table `riwayat_sewa`
 --
 ALTER TABLE `riwayat_sewa`
-  ADD CONSTRAINT `riwayat_sewa_ibfk_1` FOREIGN KEY (`penyewa_id`) REFERENCES `penyewa` (`penyewa_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `riwayat_sewa_ibfk_2` FOREIGN KEY (`kamar_id`) REFERENCES `kamar` (`kamar_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `riwayat_sewa_ibfk_1` FOREIGN KEY (`penyewa_id`) REFERENCES `penyewa` (`penyewa_id`),
+  ADD CONSTRAINT `riwayat_sewa_ibfk_2` FOREIGN KEY (`kamar_id`) REFERENCES `kamar` (`kamar_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

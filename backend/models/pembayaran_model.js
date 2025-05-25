@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
-import db from "../config/database.js";
+import db from "../config/Database.js";
+import RiwayatSewa from "./riwayatSewa.js";
 
 const { DataTypes } = Sequelize;
 
@@ -12,8 +13,20 @@ const Pembayaran = db.define("pembayaran", {
   sewa_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: RiwayatSewa,
+      key: "sewa_id",
+    },
   },
   tgl_bayar: {
+    type: DataTypes.DATEONLY,
+    allowNull: false,
+  },
+  tgl_mulai: {
+    type: DataTypes.DATEONLY,
+    allowNull: false,
+  },
+  tgl_selesai: {
     type: DataTypes.DATEONLY,
     allowNull: false,
   },
@@ -21,10 +34,12 @@ const Pembayaran = db.define("pembayaran", {
     type: DataTypes.DECIMAL(12, 2),
     allowNull: false,
   },
-  metode_bayar: DataTypes.STRING,
+  metode_bayar: {
+    type: DataTypes.STRING,
+  },
   status: {
-    type: DataTypes.ENUM("lunas", "belum lunas"),
-    defaultValue: "belum lunas",
+    type: DataTypes.ENUM('lunas', 'belum lunas'),
+    defaultValue: 'belum lunas',
   },
 }, {
   timestamps: false,
