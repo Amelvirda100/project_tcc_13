@@ -20,6 +20,7 @@ const Penyewa = db.define("penyewa", {
   telepon: DataTypes.STRING,
   alamat: DataTypes.TEXT,
 }, {
+  freezeTableName: true,
   timestamps: false,
 });
 

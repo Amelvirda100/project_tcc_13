@@ -42,6 +42,7 @@ const Pembayaran = db.define("pembayaran", {
     defaultValue: 'belum lunas',
   },
 }, {
+  freezeTableName: true,
   timestamps: false,
 });
 

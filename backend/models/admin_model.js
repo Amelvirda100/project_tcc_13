@@ -20,6 +20,7 @@ const Admin = db.define("admin", {
     allowNull: false,
   },
 }, {
+  freezeTableName: true,
   timestamps: false,
 });
 

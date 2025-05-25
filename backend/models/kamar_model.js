@@ -29,6 +29,7 @@ const Kamar = db.define("kamar", {
     allowNull: true,
   },
 }, {
+  freezeTableName: true,
   timestamps: false,
 });
 

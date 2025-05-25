@@ -32,6 +32,7 @@ const RiwayatSewa = db.define("riwayat_sewa", {
     defaultValue: 'aktif',
   },
 }, {
+  freezeTableName: true,
   timestamps: false,
 });
 

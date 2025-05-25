@@ -1,0 +1,14 @@
+### GET Admins
+GET http://localhost:5000/get-admin
+Content-Type: application/json
+
+###
+
+### POST Admin (login atau create)
+POST http://localhost:5000/add-admin
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "password123"
+}
