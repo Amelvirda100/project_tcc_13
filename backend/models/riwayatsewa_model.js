@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
-import Penyewa from "./penyewa.js";
-import Kamar from "./kamar.js";
+import Penyewa from "./penyewa_model.js";
+import Kamar from "./kamar_model.js";
 
 const { DataTypes } = Sequelize;
 

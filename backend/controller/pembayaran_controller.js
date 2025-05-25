@@ -1,4 +1,4 @@
-import Pembayaran from "../models/pembayaran.js";
+import Pembayaran from "../models/pembayaran_model.js";
 
 async function getPembayaran(req, res) {
   try {

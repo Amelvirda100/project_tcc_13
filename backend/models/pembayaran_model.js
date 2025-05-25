@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
-import RiwayatSewa from "./riwayatSewa.js";
+import RiwayatSewa from "./riwayatsewa_model.js";
 
 const { DataTypes } = Sequelize;
 

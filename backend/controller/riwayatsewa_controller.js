@@ -1,4 +1,4 @@
-import RiwayatSewa from "../models/riwayatSewa.js";
+import RiwayatSewa from "../models/riwayatsewa_model.js";
 
 async function getRiwayatSewa(req, res) {
   try {

@@ -1,4 +1,4 @@
-import Kamar from "../models/kamar.js";
+import Kamar from "../models/kamar_model.js";
 
 // GET
 async function getKamar(req, res) {

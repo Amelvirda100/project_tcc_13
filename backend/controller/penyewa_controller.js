@@ -1,4 +1,4 @@
-import Penyewa from "../models/penyewa.js";
+import Penyewa from "../models/penyewa_model.js";
 
 async function getPenyewa(req, res) {
   try {
